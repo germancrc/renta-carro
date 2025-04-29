@@ -1,0 +1,31 @@
+<h1 class="mb-4">Panel de Administración</h1>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover align-middle">
+    <thead class="table-dark">
+      <tr>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each autos}}
+        <tr>
+          <td>{{this.nombre}}</td>
+          <td>
+            <img src="{{this.imagen}}" alt="{{this.nombre}}" class="img-thumbnail" style="max-width: 100px;">
+          </td>
+          <td>{{this.descripcion}}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-secondary" disabled>Editar</button>
+              <button class="btn btn-sm btn-danger" disabled>Eliminar</button>
+            </div>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

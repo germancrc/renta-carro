@@ -1,0 +1,66 @@
+<h1 class="mb-4">Bienvenido a RentAutos</h1>
+<p class="lead">Explora nuestra selección de vehículos disponibles para alquilar.</p>
+
+{{! Contenido de index.hbs }}
+
+{{! Sección Hero con formulario de reserva }}
+<section class="rent-hero position-relative mb-5">
+  <div class="rent-hero-overlay"></div>
+  <div class="container position-relative text-white py-5">
+    <div class="card rental-card mx-auto bg-transparent border-white">
+      <div class="card-body">
+        <h2 class="card-title text-center mb-4">Reserva tu Auto Ahora</h2>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Fecha de Inicio</label>
+            <input type="date" class="form-control bg-transparent text-white" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Hora de Inicio</label>
+            <input type="time" class="form-control bg-transparent text-white" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Fecha de Devolución</label>
+            <input type="date" class="form-control bg-transparent text-white" required>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Hora de Devolución</label>
+            <input type="time" class="form-control bg-transparent text-white" required>
+          </div>
+          <div class="col-12 text-center mt-4">
+            <button class="btn btn-primary btn-lg px-5">Ver Disponibilidad</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{! Divisor Sección }}
+<div class="section-divider my-5">
+  <div class="divider-line"></div>
+  <h3 class="divider-text bg-white px-3">Vehículos Disponibles</h3>
+</div>
+
+{{! Grid de Autos }}
+<div class="container">
+  <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 g-4">
+    {{#each autos}}
+      <div class="col">
+        <div class="card h-100 shadow-hover">
+          <div class="card-img-top-container">
+            <img src="{{this.imagen}}" class="card-img-top" alt="{{this.nombre}}">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title fw-bold">{{this.nombre}}</h5>
+            <p class="card-text text-muted">{{this.descripcion}}</p>
+            <div class="d-grid">
+              <a href="/autos/{{this.id}}" class="btn btn-outline-primary">Ver Detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+
